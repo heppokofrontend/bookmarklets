@@ -22,7 +22,7 @@ JavaScriptを書く機会がないWebディレクターさんなど、非制作�
 
 `javascript:`で始まるコードがブックマークレットです。そのままブックマークに登録できます。
 
-参考：[Bookmarklet という一番身近な自動化技術 | blog.jxck.io](https://blog.jxck.io/entries/2018-01-12/let-it-bookmarklet.html)
+参考：[Bookmarklet という一番身近な自動化技術 | blog.jxck.io](https://blog.jxck.io/entries/2018-01-12/let-it-bookmarklet.html)  
 参考：[ブックマークレットの登録方法 - Qiita](https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04)
 
 
