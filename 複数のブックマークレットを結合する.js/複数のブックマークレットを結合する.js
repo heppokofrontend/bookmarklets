@@ -1,31 +1,31 @@
 /* eslint-disable no-console, no-script-url */
-(() => {
+((win, doc) => {
     'use strict';
 
     const init = () => {
-        const CONCAT_BOOKMARKLETS = window.CONCAT_BOOKMARKLETS;
+        const CONCAT_BOOKMARKLETS = win.CONCAT_BOOKMARKLETS;
         const shadowRoot = CONCAT_BOOKMARKLETS.attachShadow({
             mode: 'closed'
         });
         const content = (() => {
-            const fragment = document.createDocumentFragment();
-            const style = document.createElement('style');
-            const closeBtn = document.createElement('button');
-            const concatBtn = document.createElement('button');
-            const resultWrap = document.createElement('div');
-            const resultInput = document.createElement('input');
-            const concatResponse = document.createElement('span');
+            const fragment = doc.createDocumentFragment();
+            const style = doc.createElement('style');
+            const closeBtn = doc.createElement('button');
+            const concatBtn = doc.createElement('button');
+            const resultWrap = doc.createElement('div');
+            const resultInput = doc.createElement('input');
+            const concatResponse = doc.createElement('span');
             const tasks = {
                 close: () => {
                     CONCAT_BOOKMARKLETS.remove();
                 },
                 getFormSet: function () {
-                    const getFormSet = document.createDocumentFragment();
-                    const wrapper = document.createElement('div');
-                    const titleInput = document.createElement('input');
-                    const codeInput = document.createElement('input');
-                    const plusBtn = document.createElement('button');
-                    const deleteBtn = document.createElement('button');
+                    const getFormSet = doc.createDocumentFragment();
+                    const wrapper = doc.createElement('div');
+                    const titleInput = doc.createElement('input');
+                    const codeInput = doc.createElement('input');
+                    const plusBtn = doc.createElement('button');
+                    const deleteBtn = doc.createElement('button');
 
                     titleInput.placeholder = 'タスク名';
                     titleInput.setAttribute('aria-label', 'タスク名');
@@ -101,7 +101,7 @@
                             });
                         });
 
-                        resultInput.value = `javascript:(() => {const srcSet = ${JSON.stringify(srcSet)}; srcSet.forEach(({title, code}) => {console.log(\`\${title} を実行します\`);try {eval(code);} catch (e) {console.error(e);}});console.log('Done: 次の内容を実行しました。');console.table(srcSet);window.CONCAT_BOOKMARKLETS = window.CONCAT_BOOKMARKLETS || Object.create(null); CONCAT_BOOKMARKLETS.executed = srcSet;})();`;
+                        resultInput.value = `javascript:(() => {const srcSet = ${JSON.stringify(srcSet)}; srcSet.forEach(({title, code}) => {console.log(\`\${title} を実行します\`);try {eval(code);} catch (e) {console.error(e);}});console.log('Done: 次の内容を実行しました。');console.table(srcSet);win.CONCAT_BOOKMARKLETS = win.CONCAT_BOOKMARKLETS || Object.create(null); CONCAT_BOOKMARKLETS.executed = srcSet;})();`;
 
                         concatResponse.setAttribute('aria-hidden', 'false');
 
@@ -146,11 +146,11 @@
 
         shadowRoot.append(content);
 
-        document.body.append(CONCAT_BOOKMARKLETS);
+        doc.body.append(CONCAT_BOOKMARKLETS);
     };
 
-    if (window.CONCAT_BOOKMARKLETS) {
-        document.body.append(window.CONCAT_BOOKMARKLETS);
+    if (win.CONCAT_BOOKMARKLETS) {
+        doc.body.append(win.CONCAT_BOOKMARKLETS);
 
         return;
     }
@@ -161,6 +161,6 @@
     console.log('結合したブックマークレットの実行内容は、結合したブックマークレットの実行後に`CONCAT_BOOKMARKLETS.executed`から確認することができます。');
     console.log('GitHub： https://github.com/Soten-Bluesky/bookmarklets/tree/master/複数のブックマークレットを結合する.js');
 
-    window.CONCAT_BOOKMARKLETS = document.createElement('concat-bookmarklets');
+    win.CONCAT_BOOKMARKLETS = doc.createElement('concat-bookmarklets');
     init();
-})();
+})(window, document);
