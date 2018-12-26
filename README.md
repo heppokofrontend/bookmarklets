@@ -6,21 +6,24 @@ JavaScriptを書く機会がないWebディレクターさんなど、非制作�
 
 原則汎用的なもののみを掲載していく方針です。
 
+
+
 ## 利用方法
 
 各種日本語名フォルダの中にあるファイルのうち`.min.js`で終わっているものをご利用ください。
 
-行頭を押下することで行コピーができます。
+行頭を押下することで行コピーができます（コツがいります）。
 
 ![](README-img.png)
+
 
 
 ### ブックマークレットとは
 
 `javascript:`で始まるコードがブックマークレットです。そのままブックマークに登録できます。
 
-参照：[https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04](https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04)
-
+参考：[Bookmarklet という一番身近な自動化技術 | blog.jxck.io](https://blog.jxck.io/entries/2018-01-12/let-it-bookmarklet.html)
+参考：[ブックマークレットの登録方法 - Qiita](https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04)
 
 
 ## 諸注意
