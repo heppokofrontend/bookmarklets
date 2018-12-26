@@ -101,7 +101,7 @@
                             });
                         });
 
-                        resultInput.value = `javascript:(() => {const srcSet = ${JSON.stringify(srcSet)}; srcSet.forEach(({title, code}) => {console.log(\`\${title} を実行します\`);try {eval(code);} catch (e) {console.error(e);}});console.log('Done: 次の内容を実行しました。');console.table(srcSet);win.CONCAT_BOOKMARKLETS = win.CONCAT_BOOKMARKLETS || Object.create(null); CONCAT_BOOKMARKLETS.executed = srcSet;})();`;
+                        resultInput.value = `javascript:(() => {const srcSet = ${JSON.stringify(srcSet)}; srcSet.forEach(({title, code}) => {console.log(\`\${title} を実行します\`);try {eval(code);} catch (e) {console.error(e);}});console.log('Done: 次の内容を実行しました。');console.table(srcSet);window.CONCAT_BOOKMARKLETS = window.CONCAT_BOOKMARKLETS || Object.create(null); CONCAT_BOOKMARKLETS.executed = srcSet;})();`;
 
                         concatResponse.setAttribute('aria-hidden', 'false');
 
