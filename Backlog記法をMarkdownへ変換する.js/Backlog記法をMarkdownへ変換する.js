@@ -6,7 +6,7 @@
     }
 
     textarea.value = translate(textarea.value);
-})(document.querySelector('#descriptionTextArea, [id="page.content"]'), (val) => {
+})(document.querySelector('textarea#descriptionTextArea, textarea[id="page.content"]'), (val) => {
     'use strict';
 
     const codes = [];
