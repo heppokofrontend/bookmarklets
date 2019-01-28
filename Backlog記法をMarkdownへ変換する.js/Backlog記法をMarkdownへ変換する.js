@@ -1,3 +1,7 @@
+/*
+ * minify してBookmarkletとするときは必ずURIエンコードを通してください。
+ * そのまま生JSコードをブラウザに食わせるとリストなどのインデントが崩れてしまいます
+ */
 ((textarea, translate) => {
     'use strict';
 
@@ -5,7 +9,7 @@
         throw new TypeError('テキストエリアが見つかりませんでした。');
     }
 
-    textarea.value = translate(textarea.value);
+    textarea.value = translate(textarea.value); // 関数 translate を外に出して利用できます
 })(document.querySelector('textarea#descriptionTextArea, textarea[id="page.content"]'), (val) => {
     'use strict';
 
