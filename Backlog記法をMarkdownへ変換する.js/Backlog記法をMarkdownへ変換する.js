@@ -10,6 +10,7 @@
     }
 
     textarea.value = translate(textarea.value); // 関数 translate を外に出して利用できます
+    textarea.dispatchEvent(new Event('change'));
 })(document.querySelector('textarea#descriptionTextArea, textarea[id="page.content"]'), (val) => {
     'use strict';
 
@@ -29,9 +30,7 @@
             // 抜け漏れしている<をエスケープ。>は他の記法で利用されているためエスケープしない
             {
                 pattern: /</g,
-                replacement: (m, p1) => {
-                    return '&lt;';
-                }
+                replacement: '&lt;'
             },
 
             // strong
@@ -96,12 +95,12 @@
 
             // 余計な半角スペースの連続を削除
             {
-                pattern: /  /,
+                pattern: / {2}/g,
                 replacement: ' '
             },
 
             {
-                pattern: /&/,
+                pattern: /&/g,
                 replacement: '&amp;'
             }
         ];
@@ -205,13 +204,13 @@
         {
             pattern: /\n\|([\s|\S]*?)\|\n([^|])/g,
             replacement: (m, p1, p2) => {
-                return `\n|${textLevelSemanticsCheck(p1)}|\n\n${p2}`
+                return `\n|${textLevelSemanticsCheck(p1)}|\n\n${p2}`;
             }
         },
         {
             pattern: /\n\|([\s|\S]*?)\|\n(?!\|)/g,
             replacement: (m, p1) => {
-                return `\n\n|${p1}|\n\n`
+                return `\n\n|${p1}|\n\n`;
             }
         },
 
@@ -232,8 +231,8 @@
 
                 p1 = '\n+' + p1.trim();
                 // スペースの整形
-                p1 = p1.replace(/^(\++)(.*)$/gm, (m, p1, p2) => {
-                    return `${p1} ${p2.trim()}`;
+                p1 = p1.replace(/^(\++)(.*)$/gm, (m2, p2, p3) => {
+                    return `${p2} ${p3.trim()}`;
                 });
                 p1 = p1.trim();
 
@@ -256,8 +255,8 @@
 
 
                 // ネストがあるときに残っている + をスペースに変換
-                p1 = result.replace(/^(\++)(.*)/gm, (m, p1, p2) => {
-                    const max = p1.length;
+                p1 = result.replace(/^(\++)(.*)/gm, (m2, p2, p3) => {
+                    const max = p2.length;
                     let i = 0;
                     let indent = '';
 
@@ -265,7 +264,7 @@
                         indent += '    ';
                     }
 
-                    return indent + p2;
+                    return indent + p3;
                 });
 
 
@@ -346,7 +345,7 @@
             }
 
             return p1;
-        }
+        };
     })());
     // パラグラフの塊は最後に空行を開けさせる
     val = val.replace(/\n{{PARAGRAPHS_REPACE_BACKLOG_TO_MARKDOWN-.*?}}\n(?!{{)/g, (p1) => {
