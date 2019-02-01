@@ -133,6 +133,12 @@
 
         // theadなしテーブル
         {
+            pattern: /\n\|([\s|\S]*?)\|\n(?!\|)/g,
+            replacement: (m, p1) => {
+                return `\n|${p1}|\n\n`;
+            }
+        },
+        {
             pattern: /\n\|([\s|\S]*?)\|\n\n/g,
             replacement: (m, p1) => {
                 if (p1.indexOf('|h\n') === -1) {
