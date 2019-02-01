@@ -97,11 +97,6 @@
             {
                 pattern: / {2}/g,
                 replacement: ' '
-            },
-
-            {
-                pattern: /&/g,
-                replacement: '&amp;'
             }
         ];
 
@@ -305,6 +300,13 @@
         {
             pattern: /&br;/g,
             replacement: ' <br>'
+        },
+
+
+
+        {
+            pattern: /&/g,
+            replacement: '&amp;'
         }
     ];
 
