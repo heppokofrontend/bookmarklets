@@ -117,9 +117,6 @@
             replacement: '\n'
         },
 
-
-
-
         // 見出し
         {
             pattern: /^(\*+)(.*)$/gm,
@@ -127,9 +124,6 @@
                 return `\n${p1.replace(/\*/g, '#')} ${textLevelSemanticsCheck(p2.trim())}\n`;
             }
         },
-
-
-
 
         // theadなしテーブル
         {
@@ -160,9 +154,6 @@
             }
         },
 
-
-
-
         // 行見出しテーブル
         {
             pattern: /^\|(.*)\|(\s?)$/gm,
@@ -177,6 +168,7 @@
                 return `|${p1}|${p2}`;
             }
         },
+
         // 列見出しテーブル
         {
             pattern: /^\|(.*)\|h\s?$/gm,
@@ -201,6 +193,7 @@
                 return `\n|${p1}|\n${row}`;
             }
         },
+
         // テーブルに改行
         {
             pattern: /\n\|([\s|\S]*?)\|\n([^|])/g,
@@ -214,9 +207,6 @@
                 return `\n\n|${p1}|\n\n`;
             }
         },
-
-
-
 
         // 順序リスト
         {
@@ -273,9 +263,6 @@
             }
         },
 
-
-
-
         // 非順序リスト
         {
             pattern: /^(-+)(.*)$/gm,
@@ -298,9 +285,6 @@
                 return `${indent} ${p2}`;
             }
         },
-
-
-
 
         // 改行をbr要素に変換（Markdown in Backlogでは無視されます）
         {
@@ -355,6 +339,7 @@
             return p1;
         };
     })());
+
     // パラグラフの塊は最後に空行を開けさせる
     val = val.replace(/\n{{PARAGRAPHS_REPACE_BACKLOG_TO_MARKDOWN-.*?}}\n(?!{{)/g, (p1) => {
         return `${p1}\n`;
