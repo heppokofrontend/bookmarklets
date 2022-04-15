@@ -5,7 +5,7 @@
     const {href, origin, search} = new URL(document.URL);
     let url = href;
 
-    console.log('GitHub： https://github.com/Soten-Bluesky/bookmarklets/tree/master/1つ上の階層に移動する.js');
+    console.log('GitHub： https://github.com/heppokofrontend/bookmarklets/tree/master/1つ上の階層に移動する.js');
 
     url = url.replace(win.location.hash, '');
     url = url.replace(origin, '');
