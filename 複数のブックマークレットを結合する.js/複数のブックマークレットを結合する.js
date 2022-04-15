@@ -159,7 +159,7 @@
     console.log('表示されるパネルの中に結合したいブックマークレットを追加していきます。');
     console.log('結合ボタンを押下することで、対象のブックマークレットを結合することができます。');
     console.log('結合したブックマークレットの実行内容は、結合したブックマークレットの実行後に`CONCAT_BOOKMARKLETS.executed`から確認することができます。');
-    console.log('GitHub： https://github.com/Soten-Bluesky/bookmarklets/tree/master/複数のブックマークレットを結合する.js');
+    console.log('GitHub： https://github.com/heppokofrontend/bookmarklets/tree/master/複数のブックマークレットを結合する.js');
 
     win.CONCAT_BOOKMARKLETS = doc.createElement('concat-bookmarklets');
     init();
