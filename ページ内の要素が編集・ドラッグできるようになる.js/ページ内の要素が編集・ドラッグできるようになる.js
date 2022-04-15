@@ -208,7 +208,7 @@
                 'TO_STICKY_NOTE.colorGreen()': '緑色',
                 'TO_STICKY_NOTE.colorBlue()': '青色'
             });
-            console.log('GitHub： https://github.com/Soten-Bluesky/bookmarklets/tree/master/ページ内の要素が編集・ドラッグできるようになる.js');
+            console.log('GitHub： https://github.com/heppokofrontend/bookmarklets/tree/master/ページ内の要素が編集・ドラッグできるようになる.js');
             console.groupEnd();
         };
 
