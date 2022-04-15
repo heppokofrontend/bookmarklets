@@ -50,7 +50,7 @@
 
     console.group('選択中の文字数を表示する.js 1.0.0 2018/12/23: How to use.');
     console.log('ページ内の選択した文字数を画面右下に表示します。');
-    console.log('GitHub： https://github.com/Soten-Bluesky/bookmarklets/tree/master/選択中の文字数を表示する.js');
+    console.log('GitHub： https://github.com/heppokofrontend/bookmarklets/tree/master/選択中の文字数を表示する.js');
     console.groupEnd();
 
 
